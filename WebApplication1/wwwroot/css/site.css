@@ -1,20 +1,75 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 45px;
+    padding-bottom: 45px;
 }
 
 /* define o tamanho do mapa*/
 #mapid {
-    height: 180px;
+    height: 600px;
+    width:60%;
+    float:left;
+    }
+
+#formulario {
+    height: 600px;
+    width: 40%;
+    float:right;
 }
+
+.campo {
+    margin: 0;
+    padding-bottom: 1em;
+    width: 40%;
+    border: 1px solid #ccc;
+    padding: .7em;
+    width: 100%;
+}
+
+.campo-medio {
+    display: inline-block;
+    padding-right: .5em;
+}
+
+.grupo {
+    width: 50%  ;
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+button {
+    padding: .5em 2em;
+    border: 0;
+    border-bottom: 3px solid;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0;
+    margin-top: -3px;
+    color: #fff;
+    background-color: #0c8cd3;
+    border-color: #04324c;
+    width: 20%;
+    display: block;
+    clear: both;
+    margin: 10px 0px;
+}
+
+    button:active {
+        margin-top: 0px;
+        border: 0;
+    }
+
+    button[disabled=disabled], button:disabled {
+        background-color: gray;
+        border-color: darkgray;
+    }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Carousel */

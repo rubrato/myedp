@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplication1.Hubs;
+using Oracle.ManagedDataAccess.Client;
 
 namespace WebApplication1
 {
@@ -21,9 +23,21 @@ namespace WebApplication1
 
 		public IConfiguration Configuration { get; }
 
+
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+			{
+				builder
+				.AllowAnyMethod()
+				.AllowAnyHeader()
+				.AllowAnyOrigin()
+				.AllowCredentials();
+			}));
+
+			services.AddSignalR();
+
 			services.Configure<CookiePolicyOptions>(options =>
 			{
 				// This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -38,6 +52,19 @@ namespace WebApplication1
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
+			app.UseCors("CorsPolicy");
+			app.UseSignalR(routes =>
+			{
+				routes.MapHub<MarcadorHub>("/marcador");
+			});
+
+			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "default",
+					template: "{controller=Home}/{action=Index}/{id?}");
+			});
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -51,13 +78,6 @@ namespace WebApplication1
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
-
-			app.UseMvc(routes =>
-			{
-				routes.MapRoute(
-					name: "default",
-					template: "{controller=Home}/{action=Index}/{id?}");
-			});
 		}
 	}
 }
