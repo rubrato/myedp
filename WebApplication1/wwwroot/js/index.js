@@ -27,6 +27,10 @@ connection.on("sendMarcador", (lttd, lngtd, obs) => {
     L.marker([lttd, lngtd]).addTo(mymap).bindPopup(obs);
 });
 
+connection.on("sendConsulta", (consulta) => {
+    console.log(consulta);
+});
+
 
 var popup = L.popup();
 var sndlttd;
