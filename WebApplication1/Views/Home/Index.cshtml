@@ -6,6 +6,8 @@
       integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
       crossorigin="" />
 <script src="~/lib/signalr/signalr.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
@@ -13,39 +15,46 @@
 <div id="mapid"></div>
 
 <div id="formulario">
-    <div class="container">
-		<canvas id="myChart"></canvas>
-	</div>
-	<section class="container"> 
-			<h2 id= "titulo-form"> Relatar novo incidente</h2>
-			<form id= "form-adicionar">
-				<div class="grupo">
-					<label for="cpf">CPF</label>
-					<input type="text" name="cpf"
-					placeholder="Informe o seu CPF" class="campo">
-				</div>
+    <section class="container">
+        <h2 id="titulo-form"> Relatar novo incidente</h2>
+        <form id="form-adicionar">
+            <div class="grupo">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf"
+                       placeholder="Informe o seu CPF" class="campo">
+            </div>
 
-				<div class="grupo">
-					<label for="nome">nome</label>
-					<input type="text" name="nome"
-					placeholder="Informe seu nome"
-					class="campo campo-medio">
-				</div>
-		        <div class="grupo">
-		            <label for="tipoproblema">tipo do incidente:</label>
-		            <input id="altura" name="tipoproblema" type="text" 
-		            placeholder="Informe qual no natureza do incidente" 
-		            class="campo campo-medio">
-		        </div>
-                <div class="grupo">
-                    <label for="observacoes">Observações:</label>
-                    <input id="text" name="observacoes" type="text"
-                           placeholder="Informe suas observações sobre o acidente àrelatar"
-                           class="campo campo-medio">
-                </div>
-		        <button id="adicionar-servico" class="botao">Adicionar</button>
-			</form>
-		</section>
+            <div class="grupo">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome"
+                       placeholder="Informe seu nome"
+                       class="campo campo-medio">
+            </div>
+            <div class="grupo">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone"
+                       placeholder="Informe um telefone para contato"
+                       class="campo campo-medio">
+            </div>
+            <div class="grupo">
+                <label for="tipoproblema">Natureza do Problema:</label>
+                <select id="tipoproblema">
+                    <option>selecione o problema</option>
+                    <option value="problema1">problema1</option>
+                    <option value="problema2">problema2</option>
+                    <option value="problema3">problema3</option>
+                    <option value="problema4">problema4</option>
+                </select>
+            </div>
+            <div class="grupo">
+                <label for="observacoes">Observações:</label>
+                <input id="text" name="observacoes" type="text"
+                       placeholder="Informe suas observações sobre o acidente àrelatar"
+                       class="campo campo-medio">
+            </div>
+            <button id="adicionar-servico" class="botao">Adicionar</button>
+        </form>
+    </section>
 </div>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
         integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="

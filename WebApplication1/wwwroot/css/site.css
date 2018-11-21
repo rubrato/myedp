@@ -5,6 +5,7 @@ body {
     padding-bottom: 45px;
 }
 
+
 /* define o tamanho do mapa*/
 #mapid {
     height: 600px;
@@ -13,7 +14,7 @@ body {
     }
 
 #formulario {
-    height: 600px;
+    
     width: 40%;
     float:right;
 }
@@ -24,7 +25,6 @@ body {
     width: 40%;
     border: 1px solid #ccc;
     padding: .7em;
-    width: 100%;
 }
 
 .campo-medio {
@@ -33,9 +33,9 @@ body {
 }
 
 .grupo {
-    width: 50%  ;
+    width: 40%  ;
     display: inline-block;
-    padding: 10px 0px;
+    padding: 10px;
 }
 
 button {
@@ -52,11 +52,9 @@ button {
     width: 20%;
     display: block;
     clear: both;
-    margin: 10px 0px;
 }
 
     button:active {
-        margin-top: 0px;
         border: 0;
     }
 
@@ -68,8 +66,8 @@ button {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Carousel */
@@ -78,10 +76,7 @@ button {
     line-height: 1.4;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
+
 
 /* QR code generator */
 #qrCode {
