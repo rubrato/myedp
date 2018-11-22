@@ -60,6 +60,11 @@ connection.on("sendMarcador", (lttd, lngtd, obs) => {
 connection.on("sendConsulta", (consulta) => {
     console.log(consulta);
 });
+
+connection.on("alert", (alerta) => {
+    alert(alerta);
+});
+
 $(document).ready(function () {
     $(document).on('change', '#tipoproblema', function () {
         console.log($(this).val());
@@ -94,10 +99,10 @@ botaoAdicionar.addEventListener("click", function () {
     event.preventDefault(); //evita a pagina ser recarregada ao clicar no botao
     mymap.removeLayer(theMarker);
     var form = document.querySelector("#form-adicionar");
-    var cpf = form.cpf.value;
-    var nome = form.nome.value;
-    var telefone = form.telefone.value;
-    var observacoes = form.observacoes.value;
+    var cpf = String(form.cpf.value);
+    var nome = String(form.nome.value);
+    var telefone = String(form.telefone.value);
+    var observacoes = String(form.observacoes.value);
     console.log(cpf + "<br>" + nome + "<br>" + telefone + "<br>" + observacoes);
     connection.invoke('SendMarcador', sndlttd, sndlngtd, cpf, nome, telefone, observacoes);
 });
