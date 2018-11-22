@@ -37,7 +37,7 @@ namespace MyEDP.Models
 
                         return pop;
                     }
-                    catch (System.Exception ex)
+                    catch (System.Exception)
                     {
                         return "erro";
                     }
@@ -60,7 +60,7 @@ namespace MyEDP.Models
 
                         cmd.ExecuteReader();                        
                     }
-                    catch (System.Exception ex)
+                    catch (System.Exception)
                     {
                        
                     }

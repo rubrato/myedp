@@ -20,8 +20,8 @@ namespace WebApplication1.Hubs
             try
             {
                 oracleDAO conexao = new oracleDAO("system", "@Dmin123");
-                conexao.SalvarMarcador(lat, lng, cpf, nome, telefone, obs);
-                
+				//conexao.SalvarMarcador(lat, lng, cpf, nome, telefone, obs);
+				pop = conexao.OracleSelectFirstName();
             }
             catch(System.Exception)
             {

@@ -1,7 +1,8 @@
-﻿var mymap = L.map('mapid').fitWorld();
-
+﻿//instancia o apa e se direciona a localização do usuario
+var mymap = L.map('mapid').fitWorld();
 mymap.locate({ setView: true, maxZoom: 16 });
 
+//criação dos marcadores
 var selectmark = L.icon({
     iconUrl: 'images/pinmark.png',
 
@@ -9,7 +10,6 @@ var selectmark = L.icon({
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-
 var prb1mark = L.icon({
     iconUrl: 'images/problm1.pg',
 
@@ -17,7 +17,6 @@ var prb1mark = L.icon({
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-
 var prb2mark = L.icon({
     iconUrl: 'images/problm2.jpg',
 
@@ -25,7 +24,6 @@ var prb2mark = L.icon({
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-
 var prb3mark = L.icon({
     iconUrl: 'images/problm3.jpg',
 
@@ -34,6 +32,7 @@ var prb3mark = L.icon({
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
+//instanciaçao da textura do mapa
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -42,29 +41,28 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     id: 'mapbox.streets'
 }).addTo(mymap);
 
+//conexão com o signalR
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("/marcador")
     .configureLogging(signalR.LogLevel.Information)
     .build();
 connection.start().catch(err => console.error(err.toString()));
-
+// "Escutas"do signalR, que ouvem os comandos que vem do servidor
 connection.on("getMarcador", (lttd, lngtd) => {
     console.log(lttd, lngtd);
     L.marker([lttd, lngtd]).addTo(mymap);
 });
-
 connection.on("sendMarcador", (lttd, lngtd, obs) => {
     L.marker([lttd, lngtd]).addTo(mymap).bindPopup(obs);
 });
-
 connection.on("sendConsulta", (consulta) => {
     console.log(consulta);
 });
-
 connection.on("alert", (alerta) => {
     alert(alerta);
 });
 
+//droplist do tipo de problema
 $(document).ready(function () {
     $(document).on('change', '#tipoproblema', function () {
         console.log($(this).val());
@@ -72,11 +70,11 @@ $(document).ready(function () {
     });
 });
 
+//variaveis necessarias e a função de clicar no mapa
 var popup = L.popup();
 var sndlttd;
 var sndlngtd;
 var theMarker = {};
-
 function onMapClick(e) {
     //popup
     //    .setLatLng(e.latlng)
@@ -88,13 +86,11 @@ function onMapClick(e) {
         mymap.removeLayer(theMarker);
     };
     theMarker = L.marker([sndlttd, sndlngtd], { icon: selectmark }).addTo(mymap)
-    //connection.invoke('GetMarcador', e.latlng.lat, e.latlng.lng);
 }
 mymap.on('click', onMapClick);
 
-
+//função do botão enviar
 var botaoAdicionar = document.querySelector("#adicionar-servico")
-
 botaoAdicionar.addEventListener("click", function () {
     event.preventDefault(); //evita a pagina ser recarregada ao clicar no botao
     mymap.removeLayer(theMarker);
