@@ -14,7 +14,7 @@ body {
     }
 
 #formulario {
-    
+    height: 600px;
     width: 40%;
     float:right;
 }
@@ -22,18 +22,19 @@ body {
 .campo {
     margin: 0;
     padding-bottom: 1em;
-    width: 40%;
+    width: 80%;
     border: 1px solid #ccc;
     padding: .7em;
 }
 
 .campo-medio {
     display: inline-block;
+    width: 80%;
     padding-right: .5em;
 }
 
 .grupo {
-    width: 40%  ;
+    width: 80%  ;
     display: inline-block;
     padding: 10px;
 }

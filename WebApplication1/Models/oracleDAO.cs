@@ -45,7 +45,7 @@ namespace MyEDP.Models
             }
         }
 
-        public void SalvarMarcador(double lat, double lng, string cpf, string nome, string telefone, string obs)
+        public void SalvarMarcador(double lat, double lng, string cpf, string nome, string telefone, string obs, string problema)
         {
             using (OracleConnection con = new OracleConnection(conString))
             {
