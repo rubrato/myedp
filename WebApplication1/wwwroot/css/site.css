@@ -1,28 +1,44 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 45px;
-    padding-bottom: 45px;
+
+/* define o tamanho do mapa
+
+    width: 33.3333333333333%;
+	display: inline-block;
+	float: left;	
+	padding: 2% 2%;
+	text-align: justify;
+	text-align-last: center;
+*/
+
+.chamado {
+    margin-top: 10%;
+    width: 100%;
+}
+#mapid {
+    height: 500px;
+    width: 45%;
+    display: inline-block;
+    float: left;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: justify;
+    
 }
 
-
-/* define o tamanho do mapa*/
-#mapid {
-    height: 600px;
-    width:60%;
-    float:left;
-    }
-
 #formulario {
-    height: 600px;
-    width: 40%;
-    float:right;
+    height: 500px;
+    width: 45%;
+    display: inline-block;
+    float: right;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
 }
 
 .campo {
     margin: 0;
-    padding-bottom: 1em;
-    width: 80%;
+    width: 70%;
     border: 1px solid #ccc;
     padding: .7em;
 }
@@ -69,6 +85,8 @@ button {
 .body-content {
     padding-left: 10px;
     padding-right: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 /* Carousel */
