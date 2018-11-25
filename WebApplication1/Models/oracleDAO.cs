@@ -56,9 +56,14 @@ namespace MyEDP.Models
                         con.Open();
                         cmd.BindByName = true;
 
-                        cmd.CommandText = "select first_name from employees";
+                        cmd.CommandText = "INSERT INTO CHAMADO (CD_CHAMADO, LAT, LNG, ESTADO_CHAMADO, DS_CHAMADO) " +
+                            "VALUES (CHAMADO_SEQ.NEXTVAL, '" + lat + "', '" + lng + "', '" + problema + "', '"+ obs + "');";
+                        cmd.ExecuteReader();
 
-                        cmd.ExecuteReader();                        
+                        cmd.CommandText = "INSERT INTO CLIENTE (CD_CLIENTE, NOME_CLIENTE, TELEF, CPF) " +
+                            "VALUES (CLIENTE_SEQ.NEXTVAL, '" + nome+"', '"+telefone+"', '"+cpf+"');";
+                        cmd.ExecuteReader();
+                      
                     }
                     catch (System.Exception)
                     {
@@ -114,3 +119,16 @@ reader.Dispose();
                 }
             }
             */
+
+
+    /*
+     
+     cmd.CommandText = "SELECT LAT, LNG, ESTADO_CHAMADO "+
+                       "FROM CHAMADO"+
+                       "";
+     
+     
+     
+     
+     
+     */

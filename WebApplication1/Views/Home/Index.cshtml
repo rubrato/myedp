@@ -11,54 +11,50 @@
 
 
 
-<div class="chamado">
-    <div id="mapid"></div>
 
-    <div id="formulario">
-        <section>
-            <h2 id="titulo-form"> Relatar novo incidente</h2>
-            <form id="form-adicionar">
-                <div class="grupo">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf"
-                           placeholder="Informe o seu CPF" class="campo">
-                </div>
+    
+    <header class="hero">
 
-                <div class="grupo">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome"
-                           placeholder="Informe seu nome"
-                           class="campo campo-medio">
-                </div>
-                <div class="grupo">
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone"
-                           placeholder="Informe um telefone para contato"
-                           class="campo campo-medio">
-                </div>
-                <div class="grupo">
-                    <label for="tipoproblema">Natureza do Problema:</label>
-                    <select id="tipoproblema">
-                        <option></option>
-                        <option value="1">problema1</option>
-                        <option value="2">problema2</option>
-                        <option value="3">problema3</option>
-                        <option value="4">problema4</option>
+        <div class="hero-container">
+            <h1>O seu problema também é nosso problema</h1>
+            <a href="#" class="btn-work">View Work</a>
+            <a href="#" class="btn-contact">Contact Me</a>
+
+        </div>
+
+    </header>
+
+   
+        <div class="mapa">
+
+            <div id="mapid"></div>
+
+            <div class="formulario">
+                <h1>Relatar Incidente</h1>
+                <form id="form-adicionar">
+                    <input type="text" name="nome" placeholder="Informe seu Nome" />
+                    <input type="text" name="cpf" placeholder="Informe seu CPF" />
+                    <input type="text" name="telefone" placeholder="Informe seu Telefone" />
+                    <select id="tipoproblema" placeholder="Tipo do problema" />
+                    <option id="tipoproblema"></option>
+                    <option value="1">Policiamento</option>
+                    <option value="2">Primeiro Socorros</option>
+                    <option value="3">Obras na Pista</option>
+                    <option value="4">Acidente</option>
+                    <option value="5">Acidente Ambiental</option>
+                    <option value="6">Àrea de Risco</option>
+                    <option value="7">Saneamento</option>
                     </select>
-                </div>
-                <div class="grupo">
-                    <label for="observacoes">Observações:</label>
-                    <input id="text" name="observacoes" type="text"
-                           placeholder="Informe suas observações sobre o acidente àrelatar"
-                           class="campo campo-medio">
-                </div>
-                <button id="adicionar-servico" class="botao">Adicionar</button>
-            </form>
-        </section>
-    </div>
-</div>
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-            crossorigin=""></script>
-    <script src="~/js/index.js"></script>
+                    <textarea name="observacoes" placeholder="Informe suas observações"></textarea>
+                    <input type="submit" id="adicionar-servico" value="Adicionar" />
+                </form>
+            </div>
+
+
+
+        </div>
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+                integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+                crossorigin=""></script>
+        <script src="~/js/index.js"></script>
 

@@ -15,71 +15,220 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-top: 10%;
     width: 100%;
 }
+
 #mapid {
     height: 500px;
-    width: 45%;
+    width: 55%;
     display: inline-block;
     float: left;
     padding-top: 40px;
     padding-bottom: 40px;
     text-align: justify;
-    
+    margin-left: 20px;    
 }
 
-#formulario {
-    height: 500px;
-    width: 45%;
-    display: inline-block;
-    float: right;
+.mapa {
+    background-color: #e2e2e2;
+    text-align: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    
 }
 
-.campo {
-    margin: 0;
-    width: 70%;
-    border: 1px solid #ccc;
-    padding: .7em;
-}
+    .mapa:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
 
-.campo-medio {
-    display: inline-block;
-    width: 80%;
-    padding-right: .5em;
-}
+    .mapa h2 {
+        position: relative;
+    }
 
-.grupo {
-    width: 80%  ;
-    display: inline-block;
-    padding: 10px;
-}
+        .mapa h2:after { /* add */
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            margin-left: -40px;
+            left: 50%;
+            bottom: -5px;
+            background-color: #85af4b;
+        }
 
-button {
-    padding: .5em 2em;
-    border: 0;
-    border-bottom: 3px solid;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin: 0;
-    margin-top: -3px;
+
+    .mapa .coe {
+        width: 40%;
+        display: inline-block;
+        float: left;
+        padding: 5% 5%;
+        text-align: justify;
+        text-align-last: center;
+    }
+
+    .mapa .formulario {
+        width: 40%;
+        display: inline-block;
+        float: center;
+        padding: 5% 5%;
+        text-align: justify;
+        text-align-last: center;
+    }
+
+/* ------------------ Header Section ------------------ */
+
+.hero {
+    background-image: url(../NovaPasta/vitoria.jpg);
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
     color: #fff;
-    background-color: #0c8cd3;
-    border-color: #04324c;
-    width: 20%;
-    display: block;
-    clear: both;
+    background-attachment: fixed;
+    background-position-y: -160px;
 }
 
-    button:active {
-        border: 0;
+.hero-container {
+    text-align: center;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.hero p {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.hero h1 {
+    margin-top: 120px;
+    font-size: 40px;
+    color: white;
+}
+
+.hero p,
+.hero h1 {
+    text-align: center;
+}
+
+.hero a {
+    display: inline-block;
+}
+
+.btn-work,
+.btn-contact {
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 15px 10px;
+    padding: 10px 25px;
+    display: inline-block;
+}
+
+.btn-work {
+    color: white;
+    background-color: #30C29E;
+    border: 2px solid #fff;
+}
+
+    .btn-work:hover {
+        color: #30C29E;
+        background-color: white;
+        transition: all 0.5s ease;
     }
 
-    button[disabled=disabled], button:disabled {
-        background-color: gray;
-        border-color: darkgray;
+.btn-contact {
+    color: #30C29E;
+    background-color: white;
+    border: 2px solid #30C29E;
+}
+
+    .btn-contact:hover {
+        color: white;
+        background-color: #30C29E;
+        transition: all 0.5s ease;
+        border: 2px solid #fff;
     }
 
+/* ------------------ FORMULARIO ------------------ */
+
+.formulario {
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+}
+
+    .formulario h1 {
+        background: #43D1AF;
+        padding: 20px 0;
+        font-size: 140%;
+        font-weight: 300;
+        text-align: center;
+        color: #fff;
+        margin: -16px -16px 16px -16px;
+    }
+
+    .formulario input[type="text"],
+    .formulario input[type="date"],
+    .formulario input[type="datetime"],
+    .formulario input[type="email"],
+    .formulario input[type="number"],
+    .formulario input[type="search"],
+    .formulario input[type="time"],
+    .formulario input[type="url"],
+    .formulario textarea,
+    .formulario select {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        background: #fff;
+        margin-bottom: 4%;
+        border: 1px solid #ccc;
+        padding: 3%;
+        color: #555;
+        font: 95% Arial, Helvetica, sans-serif;
+    }
+
+        .formulario input[type="text"]:focus,
+        .formulario input[type="date"]:focus,
+        .formulario input[type="datetime"]:focus,
+        .formulario input[type="email"]:focus,
+        .formulario input[type="number"]:focus,
+        .formulario input[type="search"]:focus,
+        .formulario input[type="time"]:focus,
+        .formulario input[type="url"]:focus,
+        .formulario textarea:focus,
+        .formulario select:focus {
+            box-shadow: 0 0 5px #43D1AF;
+            padding: 3%;
+            border: 1px solid #43D1AF;
+        }
+
+    .formulario input[type="submit"],
+    .formulario input[type="button"] {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        padding: 3%;
+        background: #43D1AF;
+        border-bottom: 2px solid #30C29E;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        color: #fff;
+    }
+
+        .formulario input[type="submit"]:hover,
+        .formulario input[type="button"]:hover {
+            background: #2EBC99;
+        }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

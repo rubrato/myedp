@@ -24,10 +24,10 @@ namespace WebApplication1.Hubs
             //await Clients.All.SendAsync("sendMarcador", lat, lng, pop);
             try
             {
-                //oracleDAO conexao = new oracleDAO("system", "@Dmin123");
-				//conexao.SalvarMarcador(lat, lng, cpf, nome, telefone, obs, problema);
+                oracleDAO conexao = new oracleDAO("FUNCIONARIO", "123456");
+                conexao.SalvarMarcador(lat, lng, cpf, nome, telefone, obs, problema.ToString());
             }
-            catch(System.Exception)
+            catch (System.Exception)
             {
                 await Clients.Caller.SendAsync("alert", "erro ao conectar");
             }
@@ -42,7 +42,13 @@ namespace WebApplication1.Hubs
 				await Clients.All.SendAsync("sendMarcador3", lat, lng, pop);
 			if (problema == 4)
 				await Clients.All.SendAsync("sendMarcador4", lat, lng, pop);
-			//await Clients.All.SendAsync("alert", "você enviou seu relato");
+            if (problema == 5)
+                await Clients.All.SendAsync("sendMarcador5", lat, lng, pop);
+            if (problema == 6)
+                await Clients.All.SendAsync("sendMarcador6", lat, lng, pop);
+            if (problema == 7)
+                await Clients.All.SendAsync("sendMarcador7", lat, lng, pop);
+            //await Clients.All.SendAsync("alert", "você enviou seu relato");
 
 
 

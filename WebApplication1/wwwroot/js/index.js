@@ -11,21 +11,28 @@ var selectmark = L.icon({
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 var prb1mark = L.icon({
-    iconUrl: 'images/problm1.jpg',
+    iconUrl: 'images/policia.png',
 
     iconSize: [50, 50], // size of the icon
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 var prb2mark = L.icon({
-    iconUrl: 'images/problm2.jpg',
+    iconUrl: 'images/Socorros.png',
 
     iconSize: [50, 50], // size of the icon
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 var prb3mark = L.icon({
-    iconUrl: 'images/problm3.jpg',
+    iconUrl: 'images/obrasnapista.png',
+
+    iconSize: [50, 50], // size of the icon
+    iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var prb4mark = L.icon({
+    iconUrl: 'images/acidentenapista.png',
 
     iconSize: [50, 50], // size of the icon
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
@@ -67,13 +74,9 @@ connection.on("sendMarcador3", (lttd, lngtd, obs) => {
    
 });
 connection.on("sendMarcador4", (lttd, lngtd, obs) => {
-    L.circle([lttd, lngtd], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 150
-    }).addTo(mymap).bindPopup(obs);
+    L.marker([lttd, lngtd], { icon: prb4mark }).addTo(mymap).bindPopup(obs);
 });
+
 connection.on("sendConsulta", (consulta) => {
     console.log(consulta);
 });
@@ -108,20 +111,21 @@ function onMapClick(e) {
     theMarker = L.marker([sndlttd, sndlngtd], { icon: selectmark }).addTo(mymap)
 }
 mymap.on('click', onMapClick);
-
 //função do botão enviar
 var botaoAdicionar = document.querySelector("#adicionar-servico")
 botaoAdicionar.addEventListener("click", function () {
     event.preventDefault(); //evita a pagina ser recarregada ao clicar no botao
     mymap.removeLayer(theMarker);
-    var form = document.querySelector("#form-adicionar");
-    var cpf = String(form.cpf.value);
+    var form        = document.querySelector("#form-adicionar");    
     var nome = String(form.nome.value);
+    var cpf = String(form.cpf.value);
     var telefone = String(form.telefone.value);
     var observacoes = String(form.observacoes.value);
+
     console.log(cpf + "<br>" + nome + "<br>" + telefone + "<br>" + observacoes);
     connection.invoke('SendMarcador', sndlttd, sndlngtd, cpf, nome, telefone, observacoes, problema);
 });
+
 
 //solicitando os marcadores já existente no banco de dados
 //setTimeout(connection.invoke('GetMarcadores'), 1000);
